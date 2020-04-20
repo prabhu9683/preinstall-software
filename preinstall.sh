@@ -1,36 +1,19 @@
 #!/bin/bash
 echo "################ Install openssh-server ##############"
-sudo apt-get update -y
+sudo apt-get update 
 sudo apt-get install openssh-server
 sudo service ssh status
-echo"################# Install JAVA ##########"
-sudo apt-get update -y
-sudo apt install openjdk-8-jdk -y
-sudo java-version
-sudo update-alternatives --config java
-sudo find /usr/lib/jvm/java-1.8* | head -n 3
-sudo vi /etc/environment
-  JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
-sudo chmod o+w  /etc/environment
-sudo chmod o-w  /etc/environment
-source /etc/environment
-sudo echo $JAVA_HOME
-sudo vi ~/.profile  
-JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-PATH=$PATH:$JAVA_HOME:$HOME/bin
-export PATH
-sudo echo $JAVA_HOME
 echo "################ Install Git-Version ######"
-sudo apt-get update -y 
+sudo apt-get update 
 sudo apt install git -y 
 sudo git --version
 echo "################# Install python3.6 ########" 
-sudo apt-get update -y 
+sudo apt-get update 
 sudo apt-get install python3.6 
 sudo apt-get wget 
 sudo apt-get unzip 
 echo "################ Install terraform ###"
-sudo apt-get install unzip -y 
+sudo apt-get install unzip -y
 sudo wget https://releases.hashicorp.com/terraform/0.12.24/terraform_0.12.24_linux_amd64.zip 
 sudo unzip terraform_0.12.24_linux_amd64.zip  
 sudo mv terraform /usr/local/bin/ 
