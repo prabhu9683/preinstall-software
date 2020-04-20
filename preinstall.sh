@@ -1,30 +1,25 @@
 #!/bin/bash
-echo "################ STAGE -1 ##############"
 echo "################ Install openssh-server ##############"
 sudo apt-get update -y
 sudo apt-get install openssh-server
 sudo service ssh status
-echo "################ STAGE -2 ##############"
 echo"################# Install JAVA ##########"
 sudo apt-get update -y
 sudo apt install openjdk-8-jdk -y
-echo "################"
 sudo java-version
 sudo update-alternatives --config java
 sudo find /usr/lib/jvm/java-1.8* | head -n 3
 sudo vi /etc/environment
-## need to update into environment file : JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
+  JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
 sudo chmod o+w  /etc/environment
 sudo chmod o-w  /etc/environment
 source /etc/environment
 sudo echo $JAVA_HOME
 sudo vi ~/.profile  
-######## need to update below path to .profile file ##############
 JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 PATH=$PATH:$JAVA_HOME:$HOME/bin
 export PATH
 sudo echo $JAVA_HOME
-echo "################ STAGE -3 #################"
 echo "################ Install Git-Version ######"
 sudo apt-get update -y 
 sudo apt install git -y 
@@ -34,15 +29,12 @@ sudo apt-get update -y
 sudo apt-get install python3.6 
 sudo apt-get wget 
 sudo apt-get unzip 
-echo "################ STAGE -4 ############" 
 echo "################ Install terraform ###"
 sudo apt-get install unzip -y 
 sudo wget https://releases.hashicorp.com/terraform/0.12.24/terraform_0.12.24_linux_amd64.zip 
 sudo unzip terraform_0.12.24_linux_amd64.zip  
 sudo mv terraform /usr/local/bin/ 
-echo "########################" 
 terraform --version
-echo "############### STAGE-5 #############"
 echo"######## Build a custom docker images with following software installed #####"
 sudo apt-get update
 sudo apt-get install \
@@ -64,14 +56,12 @@ sudo docker --version
 sudo docker info
 sudo docker images
 sudo docker ps 
-echo "################ STAGE -6 ###############"
 echo" ################ Install Docker-Compose ################"
 curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 cd /usr/local/bin
 sudo chmod +x /usr/local/bin/docker-compose
 echo "##################"
 docker-compose --version
-echo "################STAGE -6 #############"
 echo "################ Install jenkins #########"
 sudo wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
 echo deb https://pkg.jenkins.io/debian-stable binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list
@@ -80,7 +70,6 @@ sudo apt-get install jenkins -y
 sudo systemctl start jenkins
 sudo systemctl status jenkins
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
-echo "################## STAGE -7 ################"
 echo "################## Install maven ###############"
 sudo apt-get update -y
 sudo apt-get upgrade -y
@@ -96,7 +85,7 @@ sudo chmod ugo+x,o-w /etc/profile.d/mavenenv.sh
 source /etc/profile.d/mavenenv.sh
 sudo apt install maven -y
 sudo mvn --version
-echo "################# Thank You ####################"
+
 
 
 
