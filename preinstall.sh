@@ -71,7 +71,6 @@ sudo apt-get install jenkins -y
 sudo systemctl start jenkins
 sudo systemctl status jenkins
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
-
 echo "################## Install maven ###############"
 sudo apt-get update -y
 sudo apt-get upgrade -y
