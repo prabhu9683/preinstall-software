@@ -1,4 +1,4 @@
-###### preinstall-software######
+preinstall-software######
 1.openssh-server
 2.Java
 3.Python
