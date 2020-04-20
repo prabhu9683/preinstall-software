@@ -9,7 +9,6 @@ echo "################ STAGE -2 ##############"
 echo"################# Install JAVA ##########"
 sudo apt-get update -y
 sudo apt install openjdk-8-jdk -y
-
 echo "################"
 sudo java-version
 sudo update-alternatives --config java
@@ -22,9 +21,10 @@ source /etc/environment
 sudo echo $JAVA_HOME
 sudo vi ~/.profile  
 ######## need to update below path to .profile file ##############
-JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-PATH=$PATH:$JAVA_HOME:$HOME/bin
-export PATH
+############JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+############PATH=$PATH:$JAVA_HOME:$HOME/bin
+############export PATH
+#############################################################
 sudo echo $JAVA_HOME
 
 echo "################ STAGE -3 #################"
